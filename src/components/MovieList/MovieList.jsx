@@ -11,10 +11,10 @@ export default function MovieList({ movies, imageDetails }) {
             <Link to={{ pathname: `${movie.id}`, state: { from: location } }}>
               <img
                 src={
-                    movie.poster_path === null
-                      ? "https://gdr.one/simg/185x278/d0e2ed/fff?text=poster"
-                      : `${imageDetails.baseUrl}${imageDetails.mediumSize}/${movie.poster_path}`
-                  }
+                  movie.poster_path === null
+                    ? "https://gdr.one/simg/185x278/d0e2ed/fff?text=poster"
+                    : `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                }
                 alt={movie.title}
               />
               <p>{movie.title}</p>
