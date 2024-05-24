@@ -1,6 +1,6 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from "react-router-dom";
 
-export default function MovieList({ movies, imageDetails }) {
+export default function MovieList({ movies }) {
   const location = useLocation();
 
   return (
@@ -8,15 +8,7 @@ export default function MovieList({ movies, imageDetails }) {
       <ul>
         {movies.map((movie) => (
           <li key={movie.id}>
-            <Link to={{ pathname: `${movie.id}`, state: { from: location } }}>
-              <img
-                src={
-                  movie.poster_path === null
-                    ? "https://gdr.one/simg/185x278/d0e2ed/fff?text=poster"
-                    : `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-                }
-                alt={movie.title}
-              />
+            <Link to={`/movies/${movie.id}`} state={{ from: location }}>
               <p>{movie.title}</p>
             </Link>
           </li>
